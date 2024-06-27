@@ -14,32 +14,24 @@ int main(){
 	mS=s<mS?s:mS;
 	mE=e>mE?e:mE;
 	
-	for(int i=s;i<e;i++)
-		arr[i]++;
+	for(int i=s;i<e;i++)arr[i]++;
 		
 	cin>>s>>e;
 	mS=s<mS?s:mS;
 	mE=e>mE?e:mE;
 	
-	for(int i=s;i<e;i++)
-		arr[i]++;
+	for(int i=s;i<e;i++)arr[i]++;
 		
 	cin>>s>>e;
 	mS=s<mS?s:mS;
 	mE=e>mE?e:mE;
 	
-	for(int i=s;i<e;i++)
-		arr[i]++;
+	for(int i=s;i<e;i++)arr[i]++;
 	
 	
-	for(int i=mS;i<mE;i++)
-		{
-			sum+=arr[i]*a[arr[i]];
-			cout<<arr[i]<<" : "<<a[arr[i]]<<" : "<<sum<<"\n";
+	for(int i=mS;i<mE;i++)sum+=arr[i]*a[arr[i]];
 			
-			
-		}
-		
+				
 	cout<<sum;
 	return 0;
 } 

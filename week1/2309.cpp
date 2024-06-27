@@ -13,8 +13,7 @@ void combi(const vector<int>&b){
 		{
 			if(sum==b[i]+b[j])
 			{
-				p.first=i;
-				p.second=j;
+				p={i,j};
 				
 				return;
 			}
@@ -44,10 +43,10 @@ int main()
 	
 	for(int i=0;i<9;i++)
 	{
-		if(i==p.first||i==p.second)
-			continue;
+		if(i==p.first||i==p.second)continue;
 		
 		cout<<v[i]<<"\n";
 	}
+	
 	return 0;
 }

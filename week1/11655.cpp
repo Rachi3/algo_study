@@ -1,23 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
-string str,ret;
-int f=1;
-string go(){
-	if(f==1)
-		return str;
-		
-	for(char c:str){
-		if(c>='a'&&c<='z'){
-			ret.push_back((c+13)/'a');
-		}else if(c>='A'&&c<='Z'){
-			ret.push_back((c+13)/'A');
-		}else ret.push_back(c);
-	}
-	
-	f=0;
-	
-	return ret;
-}
+string str;
+
 int main(){
 	//1. 문자열 입력받기
 	//2. 입력받은 문자열을 쪼개서 알파벳인지 아닌지 확인

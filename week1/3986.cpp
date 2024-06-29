@@ -17,7 +17,6 @@ int main(){
 		cin>>s;
 		
 		for(char c:s){
-			
 			if(!stk.empty()&&stk.top()==c)
 				stk.pop();
 			else

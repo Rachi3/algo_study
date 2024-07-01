@@ -1,31 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef unsigned long long ll;
+typedef long long ll;
 
 int main(){
-	//ios_base::sync_with_stdio(false);
-	//cin.tie(NULL);cout.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);cout.tie(NULL);
 	
-	int n;
+	int n,cnt=0;
 	ll tmp=1;
-	ll arr[21];
-	
-	for(int i=1;i<21;i++){
-		arr[i]=tmp;
-		tmp=1+tmp*10;
-	}
 	
 	while(cin>>n){
-		for(int i=1;i<21;i++)
-		{
-			if(arr[i]%n==0)
-			{
-				cout<<i<<"\n";
-				break;
-			}
+		tmp=1,cnt=1;
+		while(tmp%n!=0){
+			cnt++;
+			tmp=1+tmp*10;
+			tmp=tmp%n;
 		}
+		cout<<cnt<<'\n';
 	}
-	
 	return 0;
 }

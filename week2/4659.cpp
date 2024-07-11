@@ -5,6 +5,7 @@ int lcnt, vcnt;
 bool isVowel(int idx){
 	return (idx == 'a' || idx == 'e' || idx == 'i' || idx == 'o' || idx == 'u');
 }
+
 int main () { 
 	while(true){
 		cin >> s; 
@@ -15,8 +16,8 @@ int main () {
 		int prev = -1;
 		for(int i = 0; i < s.size(); i++){
 			int idx = s[i]; 
-			if(isVowel(idx))lcnt++, vcnt = 0, is_include_v = 1;
-			else vcnt++, lcnt = 0;
+			if(isVowel(idx))vcnt++, lcnt = 0, is_include_v = 1;
+			else lcnt++, vcnt = 0;
 			if(vcnt == 3 || lcnt == 3) flag = 1; 
 			if(i >= 1 && (prev == idx) && (idx != 'e' && idx != 'o')){
 				flag  = 1;

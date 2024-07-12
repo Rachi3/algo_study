@@ -6,6 +6,7 @@ int N;
 string str;
 
 vector<string> vec;
+
 bool compare(const string& a, const string& b) {
     // 길이가 다르면 짧은 문자열이 먼저 오도록 정렬
     if (a.length() != b.length()) {
@@ -34,7 +35,7 @@ int main(){
 			else if(!tmp.empty())
 			{
 				//cout<<str[i]<<" : "<<tmp<<"\n";
-				while(*(tmp.begin())=='0')
+				while(*(tmp.begin())=='0'&&tmp.length()>1)
 					tmp.erase(tmp.begin());
 					
 				vec.push_back(tmp);
@@ -46,7 +47,7 @@ int main(){
 			{
 				//cout<<str[i]<<" : "<<tmp<<"\n";
 				
-				while(*(tmp.begin())=='0')
+				while(*(tmp.begin())=='0'&&tmp.length()>1)
 					tmp.erase(tmp.begin());
 				
 				vec.push_back(tmp);

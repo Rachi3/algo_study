@@ -11,6 +11,8 @@ int main(){
 	int M;
 	//N입력받기
 	
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);cout.tie(NULL);
 	//N~1 까지 재귀적으로 가면서 곱하면 N!완성
 	//10의 개수만 구하면 됌,10의 배수면 cnt++ 그리고 2의 배수 5의 배수 하나씩 해서 최소값도 ++ 
 	
@@ -24,7 +26,7 @@ int main(){
 		//즉, 주어진 숫자 내에서 가장 큰 2의 제곱수와 5의 제곱수 찾기
 		
 	
-		for(int j=5;j<N;j*=5)
+		for(int j=5;j<=N;j*=5)
 			cnt+=N/j;
 		
 		

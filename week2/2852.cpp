@@ -1,47 +1,57 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
-//1. 1팀 2팀 득점 카운팅 첫 득점 시간 저장과 역전시간들 저장
-//2. 각 시간들 마지막에 빼서 시간 구하기
+int N;
 
-int team1,team2,t,m,s,N;
-char c;
+int team,aScore,bScore;
+int aTime,bTime;
 
-vector<pair<int,int>> T1,T2;
- 
+string s,prevTime;
+
+int sum(int&sum,int p);
+int changeStrToInt(string str){
+	return atoi(str.substr(0, 2).c_str()) * 60 + atoi(str.substr(3, 2).c_str());
+}
+string print(int a){ 
+    string d = "00" + to_string(a / 60); 
+    string e = "00" + to_string(a % 60); 
+    return d.substr(d.size() - 2, 2) + ":" + e.substr(e.size() - 2, 2); 
+}
+
 int main(){
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);cout.tie(NULL);
 	
 	cin>>N;
 	
+	
 	for(int i=0;i<N;i++){
-		cin>>t>>m>>c>>s;
+		//1.점수를 입력받을 것
+		//누가 점수를 냇고 현재 어떤게 더 큰지 비교해야함 
+		cin>>team>>s;
 		
-		if(t==1){
-			if(team1++==0)
-				T1.push_back({m,s});
-			else if(++team1==team2){
-				T1.push_back({m,s});
-			}
+
+		//점수가 입력받아지면 그당시 누가 이기고 있냐를 고민한후 
+		//이기고 있던팀에 현재까지 시간 더해주고 
+		 
+		if(aScore>bScore){
+			aTime+=(changeStrToInt(s)-changeStrToInt(prevTime));
 		}
-		else if(t==2){
-			if(team2++==0)
-				T2.push_back({m,s});
-			else if(++team2==team1){
-				T2.push_back({m,s});
-			}
+		else if(bScore>aScore){
+			bTime+=(changeStrToInt(s)-changeStrToInt(prevTime));
 		}
+		
+		team==1?aScore++:bScore++;
+		prevTime=s;
 	}	
 	
-	
-	for(auto it : T1){
-		cout<<it.first<<":"<<it.second<<"\n";
+	if(aScore>bScore){
+		aTime+=changeStrToInt("48:00")-changeStrToInt(prevTime);
+	}else if(aScore<bScore){
+		bTime+=changeStrToInt("48:00")-changeStrToInt(prevTime);
 	}
 	
+	cout<<print(aTime)<<"\n";
+	cout<<print(bTime)<<"\n";
 	
-	for(auto it : T2){
-		cout<<it.first<<":"<<it.second<<"\n";
-	}
 	return 0;
 }
